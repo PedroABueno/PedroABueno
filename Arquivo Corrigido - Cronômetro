@@ -1,0 +1,12 @@
+import time
+
+def cronometro():
+    segundos = 0
+
+    while True:
+        print(str(segundos) + " segundos")  # Correção: Converte segundos em uma string antes de imprimir
+        time.sleep(1)
+        segundos += 1
+
+cronometro()
+#Para consertarmos este código é preciso que convertamos o número de segundos em uma stringg antes de passarmos apra a função print(), com isso podemos utilizar a função str() para assim fazer a conversão.
