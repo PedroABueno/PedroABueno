@@ -1,0 +1,10 @@
+import time
+
+def cronometro():
+    segundos = 0
+
+    while True:
+        print(segundos, "segundos") #O erro está na palavras "segundos" no qual era para ser chamada de prints, na qual a segundo é a representação de segundos inteiros, mas além disso a palavra "print" que que façamos um string com um argumento, onde ocorre um erro quando tentamos fazer um número diretamente.
+        time.sleep(1)
+        segundos += 1
+
