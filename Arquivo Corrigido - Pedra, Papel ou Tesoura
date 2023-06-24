@@ -1,0 +1,32 @@
+import random
+
+def jogar_pedra_papel_tesoura():
+    opcoes = ["pedra", "papel", "tesoura"]
+    escolha_valida = False  # Variável para verificar se a escolha é válida
+
+    while not escolha_valida:  # Loop até que uma escolha válida seja feita
+        jogador = input("Escolha: pedra, papel ou tesoura? ")
+        computador = random.choice(opcoes)
+
+        print("Jogador:", jogador)
+        print("Computador:", computador)
+
+        if jogador in opcoes:  # Verifica se a escolha do jogador é válida
+            escolha_valida = True
+            if jogador == computador:
+                print("Empate!")
+            elif (jogador == "pedra" and computador == "tesoura") or (jogador == "papel" and computador == "pedra") or (jogador == "tesoura" and computador == "papel"):
+                print("Jogador venceu!")
+            else:
+                print("Computador venceu!")
+        else:
+            print("Escolha inválida. Tente novamente.")
+
+jogar_pedra_papel_tesoura()
+# Para corrigirmos o erro, é necessário que utilizemos um loop "while"  para assim o jogo dizer para o jogador realizar um nova escolha até ela seja bem sucedida.
+
+
+
+
+
+
