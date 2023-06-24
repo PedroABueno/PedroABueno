@@ -1,0 +1,35 @@
+import random
+
+def jogar_pedra_papel_tesoura(): #O erro ocorre pois nesta programação, aoclicarmos para o código fazer a escolha, ele escolhe coisas diferentes de pedra, papel ou tesoura.
+    opcoes = ["pedra", "papel", "tesoura"]
+    jogador = input("Escolha: pedra, papel ou tesoura? ")
+    computador = random.choice(opcoes)
+
+    print("Jogador:", jogador)
+    print("Computador:", computador)
+
+    if jogador == "pedra":
+        if computador == "papel":
+            print("Computador venceu!")
+        elif computador == "tesoura":
+            print("Jogador venceu!")
+        else:
+            print("Empate!")
+    elif jogador == "papel":
+        if computador == "tesoura":
+            print("Computador venceu!")
+        elif computador == "pedra":
+            print("Jogador venceu!")
+        else:
+            print("Empate!")
+    elif jogador == "tesoura":
+        if computador == "pedra":
+            print("Computador venceu!")
+        elif computador == "papel":
+            print("Jogador venceu!")
+        else:
+            print("Empate!")
+    else:
+        print("Escolha inválida. Tente novamente.")
+
+jogar_pedra_papel_tesoura()
