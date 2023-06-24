@@ -1,6 +1,6 @@
 import random
 
-def jogar_pedra_papel_tesoura(): #O erro ocorre pois nesta programação, aoclicarmos para o código fazer a escolha, ele escolhe coisas diferentes de pedra, papel ou tesoura.
+def jogar_pedra_papel_tesoura(): #O erro ocorre pois nesta programação, aoclicarmos para o código fazer a escolha, ele escolhe coisas diferentes de pedra, papel ou tesou, sem dar a oportunidade do jogador fazer uma nova escolha..
     opcoes = ["pedra", "papel", "tesoura"]
     jogador = input("Escolha: pedra, papel ou tesoura? ")
     computador = random.choice(opcoes)
