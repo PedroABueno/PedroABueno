@@ -1,0 +1,58 @@
+# Função para imprimir o tabuleiro
+def print_tabuleiro(tabuleiro):
+    for linha in tabuleiro:
+        print("|".join(linha))
+        print("-----")
+
+# Função para verificar se alguém ganhou
+def verificar_vencedor(tabuleiro):
+    for i in range(3):
+        # Verifica as linhas
+        if tabuleiro[i][0] == tabuleiro[i][1] == tabuleiro[i][2] != " ":
+            return tabuleiro[i][0]
+        # Verifica as colunas
+        if tabuleiro[0][i] == tabuleiro[1][i] == tabuleiro[2][i] != " ":
+            return tabuleiro[0][i]
+    # Verifica as diagonais
+    if tabuleiro[0][0] == tabuleiro[1][1] == tabuleiro[2][2] != " ":
+        return tabuleiro[0][0]
+    if tabuleiro[0][2] == tabuleiro[1][1] == tabuleiro[2][0] != " ":
+        return tabuleiro[0][2]
+    return None
+
+# Função para executar o jogo
+def jogar_jogo_da_velha():
+    tabuleiro = [[" " for _ in range(3)] for _ in range(3)]
+    jogador_atual = "X"
+
+    while True:
+        print_tabuleiro(tabuleiro)
+        linha = int(input("Digite o número da linha (0-2): "))  # Correção: Faixa válida de 0 a 2
+        coluna = int(input("Digite o número da coluna (0-2): "))  # Correção: Faixa válida de 0 a 2
+
+        if linha < 0 or linha > 2 or coluna < 0 or coluna > 2:  # Correção: Verifica se a entrada está dentro da faixa válida
+            print("Posição inválida. Tente novamente.")
+            continue
+
+        if tabuleiro[linha][coluna] != " ":
+            print("Posição já ocupada. Tente novamente.")  # Correção: Mensagem de erro para posição já ocupada
+            continue
+
+        tabuleiro[linha][coluna] = jogador_atual
+        vencedor = verificar_vencedor(tabuleiro)
+
+        if vencedor:
+            print_tabuleiro(tabuleiro)
+            print("O jogador", vencedor, "venceu!")
+            break
+
+        if all(tabuleiro[i][j] != " " for i in range(3) for j in range(3)):
+            print_tabuleiro(tabuleiro)
+            print("Empate!")
+            break
+
+        jogador_atual = "O" if jogador_atual == "X" else "X"
+
+# Iniciar o jogo
+jogar_jogo_da_velha()
+#Foram arrumadas as mensagens de entradas para assim dizer ao jogador para fazer a digitação de números de 0 a 2para assim corresponder ao tabuleiro
